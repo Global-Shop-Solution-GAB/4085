@@ -1,0 +1,77 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'4/25/10
+'ANS
+'Hook 11210
+
+F.Intrinsic.UI.InvokeWaitDialog("Taking router snapshot. Please wait","Please wait....")
+
+
+V.Local.sSQL.Declare(String)
+V.Local.sRouter.Declare(String)
+
+V.Local.sRouter.Set(V.Passed.008000)
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+F.Intrinsic.String.Concat("Delete from ATG_4085_Rutr_Snpsht where Terminal='",V.Caller.Terminal,"' and Router='",V.Local.sRouter,"'",V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+F.ODBC.Connection!con.OpenRecordsetRW("rst","Select * from ATG_4085_Rutr_Snpsht")
+
+F.Intrinsic.string.Concat("Select Line_Router, LMO, Run_Time, Set_Up, Rate, Operation, Part_WC_Outside from Router_Line where Router='",V.Local.sRouter,"' and Router_Type='L' and LMO<>'C' order by Line_Router",V.Local.sSQL)
+F.ODBC.Connection!con.OpenRecordsetRO("rstR",V.Local.sSQL)
+F.Intrinsic.Control.dountil(V.ODBC.con!rstR.EOF,=,True)
+	F.ODBC.con!rst.AddNew
+	F.ODBC.con!rst.Set!Terminal(V.Caller.Terminal)
+	F.ODBC.con!rst.Set!Router(V.Local.sRouter)
+	F.ODBC.con!rst.Set!Seq(V.ODBC.con!rstR.FieldValTrim!Line_Router)
+	F.ODBC.con!rst.Set!LMO(V.ODBC.con!rstR.FieldValTrim!LMO)
+
+	F.Intrinsic.Control.If(V.ODBC.con!rstR.FieldVal!LMO,=,"M")
+		F.ODBC.con!rst.Set!Qty(V.ODBC.con!rstR.FieldValLong!Run_Time)
+		F.ODBC.con!rst.Set!Runtime(0)
+		F.ODBC.con!rst.Set!Setup(V.ODBC.con!rstR.FieldVal!Set_Up)
+		F.ODBC.con!rst.Set!Part(V.ODBC.con!rstR.FieldValTrim!Part_WC_Outside)
+		F.ODBC.con!rst.Set!Rate(V.ODBC.con!rstR.FieldValLong!Rate)
+
+	F.Intrinsic.Control.Elseif(V.ODBC.con!rstR.FieldVal!LMO,=,"L")
+		F.ODBC.con!rst.Set!Runtime(V.ODBC.con!rstR.FieldValLong!Run_Time)
+		F.ODBC.con!rst.Set!Setup(V.ODBC.con!rstR.FieldVal!Set_Up)
+		F.ODBC.con!rst.Set!Qty(0)
+		F.ODBC.con!rst.Set!Rate(V.ODBC.con!rstR.FieldValLong!Rate)
+
+	F.Intrinsic.Control.ElseIf(V.ODBC.con!rstR.FieldVal!LMO,=,"O")
+		F.ODBC.con!rst.Set!Runtime(V.ODBC.con!rstR.FieldValLong!Run_Time)
+		F.ODBC.con!rst.Set!Setup(V.ODBC.con!rstR.FieldVal!Set_Up)
+		F.ODBC.con!rst.Set!Qty(0)
+		F.ODBC.con!rst.Set!Vendor(V.ODBC.con!rstR.FieldValTrim!Operation)
+		F.ODBC.con!rst.Set!Rate(V.ODBC.con!rstR.FieldValLong!Rate)
+
+	F.Intrinsic.Control.endif
+	
+	F.ODBC.con!rst.Update
+
+	F.ODBC.con!rstR.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.con!rstR.Close
+
+F.ODBC.con!rst.close
+
+F.ODBC.Connection!con.Close
+
+F.Intrinsic.UI.CloseWaitDialog
+
+
+Program.Sub.Main.End
+
+Program.Sub.Comments.Start
+${$0$}$ATG_Router_Snapshot$}$SKT$}$5/25/2016
+${$1$}$$}$$}$0$}$11210$}$RES010A-POPULATE-HOOK$}$5/25/2016 7:50:29 AM$}$(Program: RE0072; Screen: RES010A)
+
+Program.Sub.Comments.End
+
