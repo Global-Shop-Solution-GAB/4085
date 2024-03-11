@@ -1,0 +1,774 @@
+Program.Sub.ScreenSU.Start
+gui.F_Changes..create
+gui.F_Changes..caption("Router Changes")
+gui.F_Changes..size(11490,7890)
+gui.F_Changes..position(0,0)
+gui.F_Changes..event(unload,f_changes_unload)
+gui.F_Changes..alwaysontop(False)
+gui.F_Changes..fontname("Arial")
+gui.F_Changes..fontsize(8)
+gui.F_Changes..forecolor(0)
+gui.F_Changes..fontstyle(,,,,)
+gui.F_Changes..BackColor(-2147483633)
+gui.F_Changes..controlbox(True)
+gui.F_Changes..maxbutton(True)
+gui.F_Changes..minbutton(True)
+gui.F_Changes..mousepointer(0)
+gui.F_Changes..moveable(True)
+gui.F_Changes..sizeable(True)
+gui.F_Changes..ShowInTaskBar(True)
+gui.F_Changes..titlebar(True)
+gui.F_Changes.txtJobSfx.create(textbox,"",True,2040,300,0,3000,1505,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.cboReason.create(combobox)
+gui.F_Changes.cboReason.text("")
+gui.F_Changes.cboReason.visible(True)
+gui.F_Changes.cboReason.size(2760,330)
+gui.F_Changes.cboReason.zorder(0)
+gui.F_Changes.cboReason.position(200,1505)
+gui.F_Changes.cboReason.enabled(True)
+gui.F_Changes.cboReason.fontname("Arial")
+gui.F_Changes.cboReason.fontsize(8)
+gui.F_Changes.cboUser.create(combobox)
+gui.F_Changes.cboUser.text("")
+gui.F_Changes.cboUser.visible(True)
+gui.F_Changes.cboUser.size(2055,330)
+gui.F_Changes.cboUser.zorder(0)
+gui.F_Changes.cboUser.position(5150,1505)
+gui.F_Changes.cboUser.enabled(True)
+gui.F_Changes.cboUser.fontname("Arial")
+gui.F_Changes.cboUser.fontsize(8)
+gui.F_Changes.dtpRequest.create(datepicker)
+gui.F_Changes.dtpRequest.visible(True)
+gui.F_Changes.dtpRequest.size(1410,285)
+gui.F_Changes.dtpRequest.zorder(0)
+gui.F_Changes.dtpRequest.position(7250,1505)
+gui.F_Changes.dtpRequest.enabled(True)
+gui.F_Changes.dtpRequest.checkbox(False)
+gui.F_Changes.mltxtComments.create(textboxm)
+gui.F_Changes.mltxtComments.text("")
+gui.F_Changes.mltxtComments.visible(True)
+gui.F_Changes.mltxtComments.size(10950,1410)
+gui.F_Changes.mltxtComments.zorder(0)
+gui.F_Changes.mltxtComments.position(200,2225)
+gui.F_Changes.mltxtComments.enabled(True)
+gui.F_Changes.mltxtComments.alignment(0)
+gui.F_Changes.mltxtComments.fontname("Arial")
+gui.F_Changes.mltxtComments.fontsize(8)
+gui.F_Changes.mltxtComments.BackColor(-2147483643)
+gui.F_Changes.cmdSave.create(button)
+gui.F_Changes.cmdSave.caption("Save")
+gui.F_Changes.cmdSave.visible(True)
+gui.F_Changes.cmdSave.size(855,375)
+gui.F_Changes.cmdSave.zorder(0)
+gui.F_Changes.cmdSave.position(200,3830)
+gui.F_Changes.cmdSave.enabled(True)
+gui.F_Changes.cmdSave.fontname("Arial")
+gui.F_Changes.cmdSave.fontsize(8)
+gui.F_Changes.cmdSave.event(click,cmdsave_click)
+gui.F_Changes.cmdClear.create(button)
+gui.F_Changes.cmdClear.caption("Clear")
+gui.F_Changes.cmdClear.visible(True)
+gui.F_Changes.cmdClear.size(855,375)
+gui.F_Changes.cmdClear.zorder(0)
+gui.F_Changes.cmdClear.position(1200,3860)
+gui.F_Changes.cmdClear.enabled(True)
+gui.F_Changes.cmdClear.fontname("Arial")
+gui.F_Changes.cmdClear.fontsize(8)
+gui.F_Changes.cmdClear.event(click,cmdclear_click)
+gui.F_Changes.lblReason.create(label,"Change Reason",True,1935,255,1,200,1285,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lblUser.create(label,"Requesting User",True,1935,225,1,5180,1285,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lblJobSfx.create(label,"Reference Job-Sfx",True,1935,255,1,3015,1285,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lblReqDT.create(label,"Request Date",True,1935,240,1,7250,1285,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lblComments.create(label,"Comments",True,1935,255,1,200,1980,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtSeq.create(textbox,"",True,1215,300,0,200,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lblSeq.create(label,"Sequence",True,900,255,1,200,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtOldSetup.create(textbox,"",True,930,300,0,4505,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lblOldSetup.create(label,"Old Setup",True,765,255,1,4510,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtWCPart.create(textbox,"",True,1335,300,0,1600,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lblWC.create(label,"WC / Old Part",True,1110,255,1,1600,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtNewSetup.create(textbox,"",True,930,300,0,5560,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lbl9.create(label,"New Setup",True,825,255,1,5585,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtOldRuntime.create(textbox,"",True,930,300,0,6620,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.txtNewRuntime.create(textbox,"",True,930,300,0,7670,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.txtOldQty.create(textbox,"",True,930,300,0,8720,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.txtNewQty.create(textbox,"",True,930,300,0,9775,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lbl10.create(label,"Old Runtime",True,885,255,1,6620,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lbl11.create(label,"New Runtime",True,990,255,1,7670,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lbl12.create(label,"Old Qty",True,675,255,1,8720,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lbl13.create(label,"New Qty",True,720,255,1,9775,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtRCID.create(textbox,"",False,345,300,0,100,500,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.gsflexchanges.create(gsflexgrid)
+'gui.F_Changes.gsflexchanges.FixedRows(1)
+gui.F_Changes.gsflexchanges.FixedCols(0)
+gui.F_Changes.gsflexchanges.visible(True)
+gui.F_Changes.gsflexchanges.size(10950,2685)
+gui.F_Changes.gsflexchanges.zorder(0)
+gui.F_Changes.gsflexchanges.position(130,4300)
+gui.F_Changes.gsflexchanges.enabled(True)
+gui.F_Changes.gsflexchanges.event(cellenter,gsflexchanges_mouseup)
+gui.F_Changes.dtpChange.create(datepicker)
+gui.F_Changes.dtpChange.visible(True)
+gui.F_Changes.dtpChange.size(1410,285)
+gui.F_Changes.dtpChange.zorder(0)
+gui.F_Changes.dtpChange.position(5630,920)
+gui.F_Changes.dtpChange.enabled(True)
+gui.F_Changes.dtpChange.checkbox(False)
+gui.F_Changes.lbl14.create(label,"Change Date",True,1050,255,1,5640,695,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtUser.create(textbox,"",True,2040,300,0,8750,1505,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lbl15.create(label,"Changing User",True,1935,255,1,8765,1285,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtNewPart.create(textbox,"",True,1335,300,0,3045,300,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lbl16.create(label,"New Part",True,780,255,1,3045,100,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.txtNewVendor.create(textbox,"",True,1215,300,0,4275,900,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.txtOldVendor.create(textbox,"",True,1200,300,0,2950,900,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.txtNewRate.create(textbox,"",True,1215,300,0,1610,895,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.txtOldRate.create(textbox,"",True,1215,300,0,200,895,True,0,Arial,8,-2147483643,1)
+gui.F_Changes.lbl17.create(label,"Old Rate",True,825,255,1,200,690,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lbl18.create(label,"New Rate",True,825,255,1,1625,700,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lbl19.create(label,"Old Vendor",True,915,255,1,2965,705,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.lbl20.create(label,"New Vendor",True,1050,255,1,4270,690,True,0,Arial,8,-2147483633,0)
+gui.F_Changes.cboReason.tabstop(True)
+gui.F_Changes.cboReason.tabindex(1)
+gui.F_Changes.txtJobSfx.tabstop(True)
+gui.F_Changes.txtJobSfx.tabindex(2)
+gui.F_Changes.cboUser.tabstop(True)
+gui.F_Changes.cboUser.tabindex(3)
+gui.F_Changes.dtpRequest.tabstop(True)
+gui.F_Changes.dtpRequest.tabindex(4)
+gui.F_Changes.mltxtComments.tabstop(True)
+gui.F_Changes.mltxtComments.tabindex(5)
+gui.F_Changes.cmdSave.tabstop(True)
+gui.F_Changes.cmdSave.tabindex(6)
+gui.F_Changes.cmdClear.tabstop(True)
+gui.F_Changes.cmdClear.tabindex(7)
+
+
+gui.F_RtrBrw..create
+gui.F_RtrBrw..caption("Select Router")
+gui.F_RtrBrw..size(3405,1650)
+gui.F_RtrBrw..position(0,0)
+gui.F_RtrBrw..event(unload,f_rtrbrw_unload)
+gui.F_RtrBrw..alwaysontop(False)
+gui.F_RtrBrw..fontname("Arial")
+gui.F_RtrBrw..fontsize(8)
+gui.F_RtrBrw..forecolor(0)
+gui.F_RtrBrw..fontstyle(,,,,)
+gui.F_RtrBrw..BackColor(-2147483633)
+gui.F_RtrBrw..controlbox(True)
+gui.F_RtrBrw..maxbutton(True)
+gui.F_RtrBrw..minbutton(True)
+gui.F_RtrBrw..mousepointer(0)
+gui.F_RtrBrw..moveable(True)
+gui.F_RtrBrw..sizeable(True)
+gui.F_RtrBrw..ShowInTaskBar(True)
+gui.F_RtrBrw..titlebar(True)
+gui.F_RtrBrw.txtRouter.create(textbox,"",True,2325,300,0,200,200,True,0,Arial,8,-2147483643,1)
+gui.F_RtrBrw.cmdRtrBrw.create(button)
+gui.F_RtrBrw.cmdRtrBrw.caption("")
+gui.F_RtrBrw.cmdRtrBrw.visible(True)
+gui.F_RtrBrw.cmdRtrBrw.size(300,285)
+gui.F_RtrBrw.cmdRtrBrw.zorder(0)
+gui.F_RtrBrw.cmdRtrBrw.position(2600,200)
+gui.F_RtrBrw.cmdRtrBrw.enabled(True)
+gui.F_RtrBrw.cmdRtrBrw.fontname("Arial")
+gui.F_RtrBrw.cmdRtrBrw.fontsize(8)
+gui.F_RtrBrw.cmdRtrBrw.event(click,cmdrtrbrw_click)
+gui.F_RtrBrw.cmdOK.create(button)
+gui.F_RtrBrw.cmdOK.caption("OK")
+gui.F_RtrBrw.cmdOK.visible(True)
+gui.F_RtrBrw.cmdOK.size(855,375)
+gui.F_RtrBrw.cmdOK.zorder(0)
+gui.F_RtrBrw.cmdOK.position(200,600)
+gui.F_RtrBrw.cmdOK.enabled(True)
+gui.F_RtrBrw.cmdOK.fontname("Arial")
+gui.F_RtrBrw.cmdOK.fontsize(8)
+gui.F_RtrBrw.cmdOK.event(click,cmdok_click)
+gui.F_RtrBrw.txtRouter.tabstop(True)
+gui.F_RtrBrw.txtRouter.tabindex(1)
+gui.F_RtrBrw.cmdRtrBrw.tabstop(True)
+gui.F_RtrBrw.cmdRtrBrw.tabindex(2)
+gui.F_RtrBrw.cmdOK.tabstop(True)
+gui.F_RtrBrw.cmdOK.tabindex(3)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.Global.sRouter.Declare(String)
+Variable.Global.bViewOnly.Declare(Boolean,False)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'4/25/10
+'ANS
+'Hooks 11010,11092,11120,2x custom hooks
+'MLA
+'Added Check to Save Button and resized form
+'9/14/11 - Changes made by JLH
+'Fixed passed variables for the router so it's saving the router plus rev. Previously, the pv was only the router, so routers with revs weren't being properly saved.
+'Fixed users to use the new global security variables since the table is now obsolete.
+'9/23/11 - Changes made by JLH
+'Hooks are now 11092, 11300, 11010, 11120, 2x custom hooks
+'The script will now save on a router line save instead of the router header save. The window will still come up on the router header save for the user to input reasons.
+'This will ensure all changes are tracked.
+
+V.Local.sSQL.Declare(String)
+V.Local.sCaption.Declare(String)
+
+
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'
+'
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case(11010)
+		V.Passed.000201.Set("Rtr Changes")
+		F.Intrinsic.Control.CallSub("f_rtrbrw_unload")
+	F.Intrinsic.Control.case(11300)
+		V.Global.sRouter.Set(V.Passed.008000)
+		F.Intrinsic.Control.CallSub("LoadChanges")
+		F.Intrinsic.Control.CallSub("f_rtrbrw_unload")
+	F.Intrinsic.Control.Case(11092)
+		F.Intrinsic.String.GSSPartString(V.passed.000014,V.Passed.000015,V.global.sRouter)
+		V.Global.bViewOnly.Set(False)
+		F.Intrinsic.Control.CallSub("LoadChangeList")
+		F.Intrinsic.Control.CallSub("LoadReasons")
+		F.Intrinsic.Control.CallSub("LoadUsers")
+		F.Intrinsic.Control.CallSub("LockScreen")
+		F.Intrinsic.String.Concat(V.Screen.F_Changes.Caption,": ",V.Global.sRouter,V.Local.sCaption)
+		Gui.F_Changes..Caption(V.Local.sCaption)
+		Gui.F_Changes..Show
+	F.Intrinsic.Control.Case(11120)
+		F.Intrinsic.Control.If(V.Passed.000014,<>,"")
+			F.Intrinsic.String.GSSPartString(V.passed.000014,V.Passed.000015,V.global.sRouter)
+			F.Intrinsic.Control.If(V.Caller.Switches,=,"V")
+				V.Global.bViewOnly.Set(True)
+			F.Intrinsic.Control.Else
+				V.Global.bViewOnly.Set(False)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.CallSub("LoadChangeList")
+			F.Intrinsic.Control.CallSub("LoadReasons")
+			F.Intrinsic.Control.CallSub("LoadUsers")
+			F.Intrinsic.Control.CallSub("LockScreen")
+			F.Intrinsic.String.Concat(V.Screen.F_Changes.Caption,": ",V.Global.sRouter,V.Local.sCaption)
+			Gui.F_Changes..Caption(V.Local.sCaption)
+			Gui.F_Changes..Show
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub("f_rtrbrw_unload")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Case(1000005)
+		V.Global.bViewOnly.Set(True)
+		Gui.F_RtrBrw..Show
+	F.Intrinsic.Control.Case(1000006)
+		V.Global.bViewOnly.Set(False)
+		Gui.F_RtrBrw..Show
+	F.Intrinsic.Control.CaseElse
+
+		F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndSelect
+
+
+
+
+Program.Sub.Main.End
+
+Program.Sub.AddRChange.Start
+V.Local.sSQL.Declare(String)
+
+
+
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rst","Select * from ATG_4085_Router_Chng")
+F.ODBC.con!rst.AddNew
+F.ODBC.con!rst.Set!Router(V.Args.Router)
+
+F.Intrinsic.String.Concat("Select Prod_Line from Router_Header where Router='",V.Args.Router,"'",V.Local.sSQL)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rstP",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.con!rstP.EOF,=,False)
+	F.ODBC.con!rst.Set!ProductLine(V.ODBC.con!rstP.FieldVal!Prod_Line)
+F.Intrinsic.Control.Else
+	F.ODBC.con!rst.Set!ProductLine("")
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rstP.close
+
+F.ODBC.con!rst.Set!WC(V.Args.WC)
+F.ODBC.con!rst.Set!Part(V.Args.Part)
+F.ODBC.con!rst.Set!OldPart(V.Args.OldPart)
+F.ODBC.con!rst.Set!Seq(V.Args.Seq)
+F.ODBC.con!rst.Set!OldRuntime(V.Args.OldRun)
+F.ODBC.con!rst.Set!NewRuntime(V.Args.NewRun)
+F.ODBC.con!rst.Set!OldSetup(V.Args.OldSU)
+F.ODBC.con!rst.Set!NewSetup(V.Args.NewSU)
+F.ODBC.con!rst.Set!OldQty(V.Args.OldQty)
+F.ODBC.con!rst.Set!NewQty(V.Args.NewQty)
+F.ODBC.con!rst.Set!OldRate(V.Args.OldRate)
+F.ODBC.con!rst.Set!NewRate(V.Args.NewRate)
+F.ODBC.con!rst.Set!OldVendor(V.Args.OldVendor)
+F.ODBC.con!rst.Set!NewVendor(V.Args.NewVendor)
+F.ODBC.con!rst.Set!UpdateDT(V.Ambient.Now)
+F.ODBC.con!rst.Set!GSUser(V.Caller.User)
+F.ODBC.con!rst.Set!ChangeType(V.Args.Type)
+
+F.ODBC.con!rst.update
+F.ODBC.con!rst.close
+
+F.Intrinsic.String.Concat("Select * from ATG_4085_Rutr_Snpsht where Terminal='",V.Caller.Terminal,"' and Router='",V.args.Router,"' and Seq='",V.args.Seq,"'",V.Local.sSQL)
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rstP",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.con!rstP.EOF,=,False)
+	F.ODBC.con!rstP.Set!Qty(V.args.newQty)
+	F.ODBC.con!rstP.Set!Runtime(V.Args.newrun)
+	F.ODBC.con!rstP.Set!Setup(V.Args.newsu)
+	F.ODBC.con!rstP.Set!Vendor(V.Args.NewVendor)
+	F.ODBC.con!rstP.Set!Part(V.Args.Part)
+	F.ODBC.con!rstP.Set!Rate(V.Args.NewRate)
+	F.ODBC.con!rstP.Update
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rstP.Close
+
+
+Program.Sub.AddRChange.End
+
+program.sub.f_changes_unload.start
+'F.Intrinsic.Control.CallSub("ClearSnapshot")
+F.Intrinsic.Control.If(V.ODBC.con.State,=,1)
+	F.ODBC.connection!con.close
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.End
+
+program.sub.f_changes_unload.End
+
+program.sub.cmdsave_click.start
+V.Local.sSQL.Declare(String)
+V.Local.iRCID.Declare(Long)
+V.Local.sJobSfx.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_Changes!txtRCID.Text,=,"")
+	F.Intrinsic.UI.Msgbox("No sequence change selected!")
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("Select * from ATG_4085_Router_Chng where RCID=",V.Screen.F_Changes!txtRCID.Text,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRW("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.ODBC.con!rst.Set!ChangeType(V.Screen.F_Changes!cboReason.ListIndex)
+		F.ODBC.con!rst.Set!RequestingUser(V.Screen.F_Changes!cboUser.Text)
+		F.ODBC.con!rst.Set!RequestDate(V.Screen.F_Changes!dtpRequest.Value)
+		F.ODBC.con!rst.Set!Comments(V.Screen.F_Changes!mltxtComments.Text)
+		F.Intrinsic.String.Replace(V.Screen.F_Changes!txtJobSfx.Text,"-","",V.Local.sJobSfx)
+		F.Intrinsic.String.Left(V.Local.sJobSfx,9,V.Local.sJobSfx)
+		F.ODBC.con!rst.Set!JobSfx(V.Local.sJobSfx)
+		F.ODBC.con!rst.Update
+	F.Intrinsic.Control.endif
+	F.ODBC.con!rst.Close
+	F.Intrinsic.Control.CallSub("cmdclear_click")
+F.Intrinsic.Control.EndIf
+
+program.sub.cmdsave_click.End
+
+program.sub.cmdclear_click.start
+Gui.F_Changes.cboReason.ListIndex(-1)
+Gui.F_Changes.cboUser.ListIndex(0)
+Gui.F_Changes.dtpRequest.Value(V.Ambient.Date)
+Gui.F_Changes.mltxtComments.Text("")
+Gui.F_Changes.txtJobSfx.Text("")
+Gui.F_Changes.txtNewQty.Text("")
+Gui.F_Changes.txtNewRuntime.Text("")
+Gui.F_Changes.txtNewSetup.Text("")
+Gui.F_Changes.txtOldQty.Text("")
+Gui.F_Changes.txtOldRuntime.Text("")
+Gui.F_Changes.txtOldSetup.Text("")
+Gui.F_Changes.txtSeq.Text("")
+Gui.F_Changes.txtWCPart.Text("")
+Gui.F_Changes.txtRCID.Text("")
+Gui.F_Changes.dtpChange.Value(V.Ambient.Date)
+Gui.F_Changes.txtuser.Text("")
+Gui.F_Changes.txtNewPart.Text("")
+Gui.F_Changes.txtNewVendor.Text("")
+Gui.F_Changes.txtOldVendor.Text("")
+Gui.F_Changes.txtNewRate.Text("")
+Gui.F_Changes.txtOldRate.Text("")
+
+program.sub.cmdclear_click.End
+
+Program.Sub.LoadChanges.Start
+V.Local.sSQL.Declare(String)
+V.Local.sWC.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.iRuntime.Declare(Long)
+V.Local.iSetup.Declare(Long)
+V.Local.iLen.Declare(Long)
+V.Local.iTemp.Declare(String)
+V.Local.iTemp2.Declare(String)
+V.local.sVendor.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.fRate.Declare(Float)
+V.local.bAdd.Declare(String,False)
+
+'
+'
+
+V.Local.sSeq.Set(V.Passed.000111)
+F.Intrinsic.String.LPad(V.Local.sSeq,"0",6,V.Local.sSeq)
+V.Local.iRuntime.Set(V.Passed.000118)
+V.Local.iSetup.Set(V.Passed.000116)
+V.Local.sVendor.Set(V.Passed.000114)
+V.Local.sPart.Set(V.Passed.000112)
+F.Intrinsic.String.RPad(V.Local.sPart," ",20,V.Local.sPart)
+V.Local.fRate.Set(V.Passed.000120)
+
+F.Intrinsic.String.Concat("Select * from ATG_4085_Rutr_Snpsht where Terminal='",V.Caller.Terminal,"' and Router='",V.Global.sRouter,"' and Seq='",V.Local.sSeq,"'",V.Local.sSQL)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rstS",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.con!rstS.EOF,=,False)
+
+	F.Intrinsic.String.Concat("Select Part_WC_Outside, Set_Up, Run_Time Operation, Rate from Router_Line where Router='",V.ODBC.con!rstS.FieldVal!Router,"' and Line_Router='",V.ODBC.con!rstS.FieldVal!Seq,"'",V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rstL",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rstL.EOF,=,False)
+		'Material
+		F.Intrinsic.Control.If(V.ODBC.con!rstS.FieldVal!LMO,=,"M")
+			F.Intrinsic.Control.If(V.Local.iRuntime,<>,V.odbc.con!rstS.FieldVal!qty)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.sPart,<>,V.ODBC.con!rstS.FieldVal!Part)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.fRate,<>,V.ODBC.con!rstS.FieldVal!Rate)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.iSetup,<>,V.ODBC.con!rstS.FieldVal!Setup)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.ExitSub
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.if(V.Local.bAdd,=,True)
+				F.Intrinsic.Control.CallSub("AddRChange","Router",V.ODBC.con!rstS.FieldVal!router,"Seq",V.ODBC.con!rstS.FieldVal!Seq,"Type","-1","WC","","Part",V.Local.sPart,"OldPart",V.ODBC.con!rstL.FieldVal!Part_WC_Outside,"OldRun","0","NewRun","0","OldSU",V.ODBC.con!rstS.FieldVal!Setup,"NewSU",V.Local.iSetup,"OldQty",V.ODBC.con!rstS.FieldVal!Qty,"NewQty",V.Local.iRuntime,"OldVendor","","NewVendor","","OldRate",V.ODBC.con!rstS.FieldVal!rate,"NewRate",V.Local.fRate)
+			F.Intrinsic.Control.Endif
+		'Outside
+		F.Intrinsic.Control.ElseIf(V.ODBC.con!rstS.FieldVal!LMO,=,"O")
+			F.Intrinsic.Control.If(V.Local.iRuntime,<>,V.odbc.con!rstS.FieldVal!Runtime)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.sVendor.Trim,<>,V.ODBC.con!rstS.FieldValTrim!Vendor)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.fRate,<>,V.ODBC.con!rstS.FieldVal!Rate)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.iSetup,<>,V.ODBC.con!rstS.FieldVal!Setup)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.ExitSub
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.if(V.Local.bAdd,=,True)
+				F.Intrinsic.Control.CallSub("AddRChange","Router",V.ODBC.con!rstS.FieldVal!router,"Seq",V.ODBC.con!rstS.FieldVal!Seq,"Type","-1","WC","","Part","","OldPart","","OldRun",V.ODBC.con!rstS.FieldVal!Runtime,"NewRun",V.Local.iRuntime,"OldSU",V.ODBC.con!rstS.FieldVal!Setup,"NewSU",V.Local.iSetup,"OldQty","0","NewQty","0","OldVendor",V.ODBC.con!rstS.FieldVal!Vendor,"NewVendor",V.Local.sVendor,"OldRate",V.ODBC.con!rstS.FieldVal!rate,"NewRate",V.Local.fRate)
+			F.Intrinsic.Control.Endif
+
+		'Labor
+		F.Intrinsic.Control.elseif(V.ODBC.con!rstS.FieldVal!LMO,=,"L")
+			F.Intrinsic.String.Left(V.ODBC.con!rstL.FieldVal!Part_WC_Outside,4,V.Local.sWC)
+			F.Intrinsic.Control.If(V.Local.iRuntime,<>,V.odbc.con!rstS.FieldVal!runtime)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.Elseif(V.Local.iSetup,<>,V.ODBC.con!rstS.FieldVal!Setup)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.ElseIf(V.Local.fRate,<>,V.ODBC.con!rstS.FieldVal!Rate)
+				V.Local.bAdd.Set(True)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.ExitSub
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.if(V.Local.bAdd,=,True)
+				F.Intrinsic.Control.CallSub("AddRChange","Router",V.ODBC.con!rstS.FieldVal!router,"Seq",V.ODBC.con!rstS.FieldVal!Seq,"Type","-1","WC",V.Local.sWC,"Part","","OldPart","","OldRun",V.ODBC.con!rstS.FieldVal!Runtime,"NewRun",V.Local.iRuntime,"OldSU",V.ODBC.con!rstS.FieldVal!Setup,"NewSU",V.Local.iSetup,"OldQty","0","NewQty","0","OldVendor","","NewVendor","","OldRate",V.ODBC.con!rstS.FieldVal!rate,"NewRate",V.Local.fRate)
+			F.Intrinsic.Control.endif
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rstL.Close
+
+F.Intrinsic.Control.endif
+F.ODBC.con!rstS.close
+
+Program.Sub.LoadChanges.End
+
+Program.Sub.LoadChangeList.Start
+V.Local.sSQL.Declare(String)
+
+Gui.F_Changes.gsflexChanges.Cols(17)
+Gui.F_Changes.gsflexChanges.Rows(2)
+Gui.F_Changes.gsflexChanges.FixedRows(1)
+
+
+'Gui.F_Changes.gsflexchanges.SetColumnPercentages(".00:.07:.05:.16:.09:.09:.09:.09:.09:.09:.09:.09")
+
+Gui.F_Changes.gsflexChanges.TextMatrix(0,0,"RCID")
+Gui.F_Changes.gsflexChanges.TextMatrix(1,0,"Seq")
+Gui.F_Changes.gsflexChanges.TextMatrix(2,0,"WC")
+Gui.F_Changes.gsflexChanges.TextMatrix(3,0,"Old Part")
+Gui.F_Changes.gsflexChanges.TextMatrix(4,0,"New Part")
+Gui.F_Changes.gsflexChanges.TextMatrix(5,0,"Old Run")
+Gui.F_Changes.gsflexChanges.TextMatrix(6,0,"New Run")
+Gui.F_Changes.gsflexChanges.TextMatrix(7,0,"Old Setup")
+Gui.F_Changes.gsflexChanges.TextMatrix(8,0,"New Setup")
+Gui.F_Changes.gsflexChanges.TextMatrix(9,0,"Old Qty")
+Gui.F_Changes.gsflexChanges.TextMatrix(10,0,"New Qty")
+Gui.F_Changes.gsflexChanges.TextMatrix(11,0,"Old Vendor")
+Gui.F_Changes.gsflexChanges.TextMatrix(12,0,"New Vendor")
+Gui.F_Changes.gsflexChanges.TextMatrix(13,0,"Old Rate")
+Gui.F_Changes.gsflexChanges.TextMatrix(14,0,"New Rate")
+Gui.F_Changes.gsflexChanges.TextMatrix(15,0,"Change Date")
+Gui.F_Changes.gsflexChanges.TextMatrix(16,0,"User")
+
+
+Gui.F_Changes.gsflexChanges.BuildStyle(2,0,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,1,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,2,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,3,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,4,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,5,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,6,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,7,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,8,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,9,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,10,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,11,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,12,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,13,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,14,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,15,"type","locked",True)
+Gui.F_Changes.gsflexChanges.BuildStyle(2,16,"type","locked",True)
+
+F.Intrinsic.String.Concat("Select RCID, Seq, WC, OldPart, Part, OldRuntime, NewRuntime, OldSetup, NewSetup, OldQty, NewQty, OldVendor, NewVendor, OldRate, NewRate, UpdateDT, GSUser from ATG_4085_Router_Chng where Router='",V.Global.sRouter,"'",V.Local.sSQL)
+F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSQL)
+Gui.F_Changes.gsflexChanges.FixedRows(1)
+
+Gui.F_Changes.gsflexChanges.LoadRecordset("con!rst",2)
+
+F.ODBC.con!rst.close
+
+
+Program.Sub.LoadChangeList.End
+
+program.sub.flexchanges_dblclick.start
+V.Local.sSQL.Declare(String)
+V.Local.sRCID.Declare(String)
+V.Local.iLI.Declare(Long)
+
+F.Intrinsic.Control.CallSub("cmdClear_click")
+Gui.F_Changes.gsflexChanges.GetTextMatrix(0,V.Screen.F_Changes!gsflexChanges.Row,V.Local.sRCID)
+F.Intrinsic.String.Concat("Select * from ATG_4085_Router_Chng where RCID=",V.Local.sRCID,V.Local.sSQL)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+	Gui.F_Changes.cboReason.ListIndex(V.ODBC.con!rst.FieldVal!Reason)
+	V.Local.iLI.Set(V.Args.iLI)
+	Gui.F_Changes.cboUser.ListIndex(V.Local.iLI)
+	F.intrinsic.Control.If(V.ODBC.con!rst.FieldValIsNull,=,False)
+		Gui.F_Changes.dtpRequest.Value(V.ODBC.con!rst.FieldVal!RequestDate)
+	F.Intrinsic.Control.Else
+		Gui.F_Changes.dtpRequest.Value(V.Ambient.Date)
+	F.Intrinsic.Control.endif
+	Gui.F_Changes.mltxtComments.Text(V.ODBC.con!rst.FieldVal!Comments)
+	Gui.F_Changes.txtJobSfx.Text(V.ODBC.con!rst.FieldVal!JobSfx)
+	Gui.F_Changes.txtNewQty.Text(V.ODBC.con!rst.FieldVal!NewQty)
+	Gui.F_Changes.txtNewRuntime.Text(V.ODBC.con!rst.FieldVal!NewRuntime)
+	Gui.F_Changes.txtNewSetup.Text(V.ODBC.con!rst.FieldVal!NewSetup)
+	Gui.F_Changes.txtOldQty.Text(V.ODBC.con!rst.FieldVal!OldQty)
+	Gui.F_Changes.txtOldRuntime.Text(V.ODBC.con!rst.FieldVal!OldRuntime)
+	Gui.F_Changes.txtOldSetup.Text(V.ODBC.con!rst.FieldVal!OldSetup)
+	Gui.F_Changes.txtSeq.Text(V.ODBC.con!rst.FieldVal!Seq)
+	Gui.F_Changes.txtRCID.Text(V.ODBC.con!rst.FieldVal!RCID)
+	Gui.F_Changes.txtUser.Text(V.ODBC.con!rst.FieldVal!GSUser)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.FieldVal!WC,=,"")
+		Gui.F_Changes.txtWCPart.Text(V.ODBC.con!rst.FieldVal!Part)
+	F.Intrinsic.Control.Else
+		Gui.F_Changes.txtWCPart.Text(V.ODBC.con!rst.FieldVal!WC)
+	F.Intrinsic.Control.endif
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Close
+
+program.sub.flexchanges_dblclick.End
+
+Program.Sub.LoadReasons.Start
+Gui.F_Changes.cboReason.AddItem("Runtime Change Request",0)
+Gui.F_Changes.cboReason.AddItem("Engineering Change Request",1)
+Gui.F_Changes.cboReason.AddItem("For Quote",2)
+Gui.F_Changes.cboReason.AddItem("New Product Review",3)
+Gui.F_Changes.cboReason.AddItem("Test",4)
+Gui.F_Changes.cboReason.AddItem("Pricing Change",5)
+
+Program.Sub.LoadReasons.End
+
+Program.Sub.LoadUsers.Start
+V.Local.iCount.Declare(Long)
+V.Local.sUser.Declare(String)
+V.Local.iIndex.Declare(Long,1)
+
+
+
+Gui.F_Changes.cboUser.AddItem("",0)
+F.Global.Security.GetAllUsers(V.Caller.CompanyCode,V.Local.sUser)
+F.Intrinsic.String.Split(V.Local.sUser,"*!*",V.Local.sUser)
+F.Intrinsic.Control.For(V.local.iCount,0,V.Local.sUser.UBound,1)
+	Gui.F_Changes.cboUser.AddItem(V.Local.sUser(v.Local.iCount),V.Local.iIndex)
+	F.Intrinsic.Math.Add(V.Local.iIndex,1,V.Local.iIndex)
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+
+Program.Sub.LoadUsers.End
+
+Program.Sub.LockScreen.Start
+Gui.F_Changes.txtNewQty.Enabled(False)
+Gui.F_Changes.txtNewRuntime.Enabled(False)
+Gui.F_Changes.txtNewSetup.Enabled(False)
+Gui.F_Changes.txtOldQty.Enabled(False)
+Gui.F_Changes.txtOldRuntime.Enabled(False)
+Gui.F_Changes.txtOldSetup.Enabled(False)
+Gui.F_Changes.txtSeq.Enabled(False)
+Gui.F_Changes.txtWCPart.Enabled(False)
+Gui.F_Changes.txtNewPart.Enabled(False)
+Gui.F_Changes.txtRCID.Enabled(False)
+Gui.F_Changes.dtpChange.Enabled(False)
+Gui.F_Changes.txtUser.Enabled(False)
+Gui.F_Changes.txtOldRate.Enabled(False)
+Gui.F_Changes.txtNewRate.Enabled(False)
+Gui.F_Changes.txtOldVendor.Enabled(False)
+Gui.F_Changes.txtNewVendor.Enabled(False)
+
+F.Intrinsic.Control.If(V.Global.bViewOnly,=,True)
+	Gui.F_Changes.cboReason.Enabled(False)
+	Gui.F_Changes.cboUser.Enabled(False)
+	Gui.F_Changes.dtpRequest.Enabled(False)
+	Gui.F_Changes.mltxtComments.Enabled(False)
+	Gui.F_Changes.txtJobSfx.Enabled(False)
+F.Intrinsic.Control.endif
+
+
+Program.Sub.LockScreen.End
+
+program.sub.f_rtrbrw_unload.start
+F.Intrinsic.Control.If(V.ODBC.con.State,=,1)
+	F.ODBC.connection!con.close
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.End
+
+program.sub.f_rtrbrw_unload.End
+
+program.sub.cmdok_click.start
+V.Local.sCaption.Declare(String)
+V.Global.sRouter.Set(V.Screen.F_RtrBrw!txtRouter.Text)
+Gui.F_RtrBrw..Visible(False)
+
+F.Intrinsic.Control.CallSub("LoadChangeList")
+F.Intrinsic.Control.CallSub("LoadReasons")
+F.Intrinsic.Control.CallSub("LoadUsers")
+F.Intrinsic.Control.CallSub("LockScreen")
+F.Intrinsic.String.Concat(V.Screen.F_Changes.Caption,": ",V.Global.sRouter,V.Local.sCaption)
+Gui.F_Changes..Caption(V.Local.sCaption)
+Gui.F_Changes..Show
+
+program.sub.cmdok_click.End
+
+program.sub.cmdrtrbrw_click.start
+V.Local.sCol.Declare(String)
+V.Local.sColW.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.Split("Router*!*Description","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("1000*!*2500","*!*",V.Local.sColW)
+V.Local.sQuery.Set("Select Router, Description_Router from Router_Header where Router_Type='H' order by Router")
+
+F.Intrinsic.UI.Browser("Select a Router","con",V.Local.sQuery,V.Local.sCol,V.Local.sColW,5000,5000,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.local.sRet,"<>","***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_RtrBrw.txtRouter.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+program.sub.cmdrtrbrw_click.End
+
+program.sub.gsflexchanges_mouseup.start
+V.Local.sSQL.Declare(String)
+V.Local.sRCID.Declare(String)
+V.Local.iLI.Declare(Long)
+V.Local.sJob.Declare(String)
+V.Local.sSfx.Declare(String)
+V.Local.sComment.Declare(String)
+
+F.Intrinsic.Control.CallSub("cmdClear_click")
+
+
+Gui.F_Changes.gsflexChanges.GetTextMatrix(0,V.Screen.F_Changes!gsflexChanges.Row,V.Local.sRCID)
+F.Intrinsic.Control.If(V.Local.sRCID,<>,"")
+	F.Intrinsic.String.Concat("Select * from ATG_4085_Router_Chng where RCID=",V.Local.sRCID,V.Local.sSQL)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		Gui.F_Changes.cboReason.ListIndex(V.ODBC.con!rst.FieldVal!ChangeType)
+
+		F.Intrinsic.control.if(V.ODBC.con!rst.FieldValIsNull!RequestingUser,=,False)
+			Gui.F_Changes.cboUser.Text(V.ODBC.con!rst.FieldVal!RequestingUser)
+		F.Intrinsic.Control.Else
+			Gui.F_Changes.cboUser.ListIndex(-1)
+		F.Intrinsic.Control.EndIf
+		F.intrinsic.Control.If(V.ODBC.con!rst.FieldValIsNull!RequestDate,=,False)
+			Gui.F_Changes.dtpRequest.Value(V.ODBC.con!rst.FieldVal!RequestDate)
+		F.Intrinsic.Control.Else
+			Gui.F_Changes.dtpRequest.Value(V.Ambient.Date)
+		F.Intrinsic.Control.endif
+		V.Local.sComment.Set(V.ODBC.con!rst.FieldVal!Comments)
+		F.intrinsic.Control.If(V.Local.sComment,<>,"")
+			Gui.F_Changes.mltxtComments.Text(V.Local.sComment)
+		F.Intrinsic.Control.Else
+			Gui.F_Changes.mltxtComments.Text("")
+		F.Intrinsic.control.EndIf
+		F.intrinsic.Control.If(V.ODBC.con!rst.FieldValIsNull!JobSfx,=,False)
+			F.Intrinsic.String.Left(V.ODBC.con!rst.FieldVal!JobSfx,6,V.Local.sJob)
+			F.Intrinsic.String.Right(V.ODBC.con!rst.FieldVal!JobSfx,3,V.Local.sSfx)
+			F.Intrinsic.String.Concat(V.Local.sJob,"-",V.Local.sSfx,V.Local.sJob)
+			Gui.F_Changes.txtJobSfx.Text(V.Local.sJob)
+		F.Intrinsic.Control.Else
+			Gui.F_Changes.txtJobSfx.Text("")
+		F.Intrinsic.Control.EndIf
+		Gui.F_Changes.txtNewQty.Text(V.ODBC.con!rst.FieldVal!NewQty)
+		Gui.F_Changes.txtNewRuntime.Text(V.ODBC.con!rst.FieldVal!NewRuntime)
+		Gui.F_Changes.txtNewSetup.Text(V.ODBC.con!rst.FieldVal!NewSetup)
+		Gui.F_Changes.txtOldQty.Text(V.ODBC.con!rst.FieldVal!OldQty)
+		Gui.F_Changes.txtOldRuntime.Text(V.ODBC.con!rst.FieldVal!OldRuntime)
+		Gui.F_Changes.txtOldSetup.Text(V.ODBC.con!rst.FieldVal!OldSetup)
+		Gui.F_Changes.txtSeq.Text(V.ODBC.con!rst.FieldVal!Seq)
+		Gui.F_Changes.txtRCID.Text(V.ODBC.con!rst.FieldVal!RCID)
+		Gui.F_Changes.txtUser.Text(V.ODBC.con!rst.FieldVal!GSUser)
+		Gui.F_Changes.txtOldRate.Text(V.ODBC.con!rst.FieldVal!OldRate)
+		Gui.F_Changes.txtNewRate.Text(V.ODBC.con!rst.FieldVal!NewRate)
+		Gui.F_Changes.txtOldVendor.Text(V.ODBC.con!rst.FieldVal!OldVendor)
+		Gui.F_Changes.txtNewVendor.Text(V.ODBC.con!rst.FieldVal!NewVendor)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.FieldValTrim!WC,<>,"")
+			Gui.F_Changes.txtWCPart.Text(V.ODBC.con!rst.FieldVal!WC)
+		F.Intrinsic.Control.Else
+			Gui.F_Changes.txtWCPart.Text(V.ODBC.con!rst.FieldVal!OLDPART)
+			Gui.F_Changes.txtNewPart.Text(V.ODBC.con!rst.FieldVal!PART)
+		F.Intrinsic.Control.endif
+		F.intrinsic.Control.If(V.ODBC.con!rst.FieldValIsNull!UpdateDT,=,False)
+			Gui.F_Changes.dtpChange.Value(V.ODBC.con!rst.FieldVal!UpdateDT)
+		F.Intrinsic.Control.Else
+			Gui.F_Changes.dtpChange.Value(V.Ambient.Date)
+		F.Intrinsic.Control.endif
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+F.Intrinsic.Control.EndIf
+
+
+program.sub.gsflexchanges_mouseup.End
+
+Program.Sub.ClearSnapshot.Start
+V.Local.sSQL.Declare(String)
+
+F.Intrinsic.String.Concat("Delete from ATG_4085_Rutr_Snpsht where Terminal='",V.Caller.Terminal,"' and Router='",V.Global.sRouter,"'",V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+Program.Sub.ClearSnapshot.End
+
+Program.Sub.Comments.Start
+${$0$}$ATG_Router_Change$}$SKT$}$5/25/2016$}$False
+${$1$}$$}$$}$3$}$11010$}$RES0101-POPULATE-HOOK$}$5/25/2016 7:48:51 AM$}$(Program: RE0010GI; Screen: RES0101)
+
+${$1$}$$}$$}$2$}$11300$}$RES010A-PB-SAVE-HOOK$}$5/25/2016 7:48:30 AM$}$(Program: RE0072; Screen: RES010A)
+
+${$1$}$$}$$}$1$}$11092$}$RES0101-POST-SAVE-HOOK$}$5/25/2016 7:48:11 AM$}$(Program: RE0010GI; Screen: RES0101)
+
+${$1$}$$}$$}$0$}$11120$}$RES0101-SCRIPT-1-HOOK$}$5/25/2016 7:47:48 AM$}$(Program: RE0010GI; Screen: RES0101)
+
+Program.Sub.Comments.End
+
